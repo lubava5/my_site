@@ -1,0 +1,46 @@
+
+.hero{
+  //background: url("../img/decor/chocolates.png") left 78%  center no-repeat,
+  //url("../img/decor/big-leaf.png") right bottom no-repeat;
+  background-color: #61C4D9;
+  height: 100vh;
+  min-height: 650px;
+  color: #fff;
+  position: relative;
+  &:before{
+    position: absolute;
+    bottom: -40px;
+    left: 20%;
+    content: url("../img/decor/corner-leaf.png");
+  }
+  // &after:{
+  //   content: url("");
+  //   position: absolute;
+  //   bottom: -40px;
+  //   right: 0;
+  //}
+}
+.hero__title-section{
+  width: 46%;
+}
+.hero__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 24px 0 45px ;
+  background: url("../img/decor/chocolates.png") right  center /50% auto no-repeat;
+  
+}
+.hero__main-title{
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.hero__title-desc{
+  font-size: 21px;
+  margin-bottom: 28px;
+  padding-right: 10%;
+}

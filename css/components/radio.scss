@@ -1,0 +1,43 @@
+.radio{
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 18px;
+  &--checkbox{
+    .radio__visible{
+      border-radius: 4px;
+
+      &::before{
+        background: url("../img/icons/tick.png") center center no-repeat;
+      }
+  
+    }
+  }
+}
+.radio__elem{
+  display: none;
+  &:checked~.radio__visible{
+    &::before{
+      display: block;
+    }
+  }
+}
+.radio__visible{
+  width: 26px;
+  height: 26px;
+  position: relative;
+  border-radius: 50%;
+  background: #fff;
+  &:before{
+    content: "";
+    width: 14px;
+    height: 14px;
+    background:  #365A49;
+    border-radius: 50%;
+    position: absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

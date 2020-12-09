@@ -2,6 +2,15 @@
   width: 660px;
   height: 405px;
   margin: auto ;
+  @include tablets{
+    width: 394px;
+    height: 233px;  
+  }
+  @include phones{
+    width: 350px;
+  height: 155px; 
+  }
+
 }
 .player__controls{
   position: absolute;
@@ -14,6 +23,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 25px;
+  @include tablets{
+    padding: 0 10px;
+  
+  }
+  @include phones{
+    padding: 0 5px;
+  }
 }
 .player{
   position: relative;
@@ -92,6 +108,14 @@ transform: translate(-50%,-50%);
 .player__playback{
   height: 16px;
   width: 446px;
+  @include tablets{
+    width: 260px;
+   
+  }
+  @include phones{
+    width: 150px;
+; 
+  }
   position: relative;
 
   &:before{

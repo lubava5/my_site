@@ -1367,6 +1367,18 @@ button {
   height: 405px;
   margin: auto;
 }
+@media screen and (max-width: 768px) {
+  .player-section__container {
+    width: 394px;
+    height: 233px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .player-section__container {
+    width: 350px;
+    height: 155px;
+  }
+}
 
 .player__controls {
   position: absolute;
@@ -1379,6 +1391,16 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 0 25px;
+}
+@media screen and (max-width: 768px) {
+  .player__controls {
+    padding: 0 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .player__controls {
+    padding: 0 5px;
+  }
 }
 
 .player {
@@ -1443,6 +1465,16 @@ button {
   height: 16px;
   width: 446px;
   position: relative;
+}
+@media screen and (max-width: 768px) {
+  .player__playback {
+    width: 260px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .player__playback {
+    width: 150px;
+  }
 }
 .player__playback:before {
   content: "";

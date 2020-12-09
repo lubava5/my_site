@@ -227,16 +227,6 @@ const playerContainer=$('.player');
 
 
 let eventsInit=()=>{
-  $('.player__splash').click(e=>{
-    
-    $('.player__splash').css({
-      'display':'none'}
-     );
-     playerContainer.removeClass('active');
-  playerContainer.addClass('paused');
-  player.playVideo();
-  })
-
 $('.player__start').click(e=>{
 e.preventDefault();
 
@@ -256,11 +246,7 @@ if(playerContainer.hasClass('paused')){
 player.playVideo()
 }
 
-});
-
-
- 
-
+})
 
 $('.player__playback').click(e=>{
   const bar=$(e.currentTarget);
@@ -320,34 +306,10 @@ $('.player__duration-completed').text(formatTime(completedSec));
 }
 
 
-const sizePlayer=()=>{
-  const widthBody=$("body").width();
-  let playWidth;
-  let playHeight;
-  if(widthBody>768){
-   return {
-    playWidth:660,
-    playHeight:370
-   }}
-  else if ( widthBody>480 && widthBody<=768){
-    return {
-      playWidth:394,
-      playHeight:198
-    }}
-    else  {
-      return {
-       playWidth:350,
-       playHeight:120
-      }}
-  };
-
-
-
-
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('yt-player', {
-    height: sizePlayer().playHeight,
-    width: sizePlayer().playWidth,
+    height: '370',
+    width: '660',
     videoId: 'LXb3EKWsInQ', 
     events: {
       'onReady': onPlayerReady,
@@ -478,105 +440,83 @@ closeEveryItemInContainer($('.products-menu'));
 ////OPS
 const sections=$("section");
 const display=$(".maincontent");
-const sideMenu=$(".fixed-menu");
-const menuItems=sideMenu.find(".fixed-menu__item");
-
-const mobileDetect=new MobileDetect(window.navigator.userAgent);
-const isMobileVers=mobileDetect.mobile();
-
 
 let inScroll=false;
-sections.first().addClass("activeSection");
 
-const countSectionPosition=sectionEq=>{
-  const position=sectionEq*-100;
-  if(isNaN(position)){
-    console.error("передано не верное значение в countSectionPosition")
-    return 0;
-  }
-  return position;
-}
 
-const changeMenuThemeForSection=sectionEq=>{
-  const currentSection=sections.eq(sectionEq);
-  const menuTheme=currentSection.attr("data-sidemenu-theme");
-  const activeClassMenu="fixed-menu-shadowed";
-  const activeClassLink="fixed-menu__link-shadow";
- 
-  const sideLink=$(".fixed-menu__link");
-  if(menuTheme=="black"){
-  sideMenu.addClass(activeClassMenu);
-  sideLink.addClass(activeClassLink);
-  }else{
-    sideMenu.removeClass(activeClassMenu);
-    sideLink.removeClass(activeClassLink);
-  }
-}
-
-const resetActiveClassForItem=(items,itemEq,activeClass)=>{
-  items.eq(itemEq).addClass(activeClass).siblings().removeClass(activeClass);
-}
-
+sections.first().addClass("activeSection")
 
 
 const performTransition=sectionEq=>{
-  if(inScroll) return;
 
-  const transitionOver=800;
-  const mouseInertiaOver=300;
+  if(inScroll==false){
     inScroll=true;
+    const position=sectionEq*-100;
 
-    const position=countSectionPosition(sectionEq);
+    const currentSection=sections.eq(sectionEq);
+    const menuTheme=currentSection.attr("data-sidemenu-theme");
+    const sideMenu=$(".fixed-menu");
+    const sideLink=$(".fixed-menu__link");
+    if(menuTheme=="black"){
+    sideMenu.addClass("fixed-menu-shadowed");
+    sideLink.addClass("fixed-menu__link-shadow");
+    }else{
+      sideMenu.removeClass("fixed-menu-shadowed");
+      sideLink.removeClass("fixed-menu__link-shadow");
+    }
 
-    changeMenuThemeForSection(sectionEq);
-   
+
+
+
     display.css({
       transform:`translateY(${position}%)`
     });
   
-    resetActiveClassForItem(sections,sectionEq,"activeSection");
-    
+    sections.eq(sectionEq).addClass("activeSection").siblings().removeClass("activeSection");
 
     
 
 setTimeout(()=>{
 inScroll=false;
-resetActiveClassForItem(menuItems,sectionEq,"fixed-menu__item--active");
-},transitionOver+mouseInertiaOver);
 
+sideMenu
+.find(".fixed-menu__item")
+.eq(sectionEq)
+.addClass("fixed-menu__item--active")
+.siblings()
+.removeClass("fixed-menu__item--active");
+},800);
 
+}
 };
 
-const viewportScroller=()=>{
+const scrollViewport=direction=>{
 
   const activeSection=sections.filter(".activeSection");
   const nextSection=activeSection.next();
   const prevSection=activeSection.prev();
 
-  return {next(){
-    if(nextSection.length){
-      performTransition(nextSection.index());
-    }},
-    prev(){
-      if(prevSection.length){
-      performTransition(prevSection.index());
-    }}
+  if(direction=="next" && nextSection.length){
+    performTransition(nextSection.index());
   }
-
-  
-  
+  if(direction=="prev" && prevSection.length){
+    performTransition(prevSection.index());
+  }
 }
 
 $(window).on("wheel",e=>{
   const deltaY=e.originalEvent.deltaY;
- const scroller=viewportScroller();
+ 
+  //console.log(deltaY);
+
 
   if(deltaY>0){
-    scroller.next();
-    
+    //next
+    scrollViewport("next");
   }
   if(deltaY<0){
-    scroller.prev();
+    //prev
+    scrollViewport("prev");
   }
 
 });
@@ -584,22 +524,22 @@ $(window).on("wheel",e=>{
 $(window).on("keydown",e=>{
 
   const tagName=e.target.tagName.toLowerCase();
- const userTypingInInput=tagName=='input' || tagName=='textarea';
- const scroller=viewportScroller();
+ // console.log(e);
 
-  if(userTypingInInput) return ;
+  if(tagName!=='input' && tagName!=='textarea'){
     switch(e.keyCode){
-      case 38:
-      scroller.prev();
+      case 38: //prev
+      scrollViewport("prev");
       break;
-      case 40:
-      scroller.next();
+  
+    case 40: //next
+    scrollViewport("next");
       break;
       
     }
+  }
+  
 });
-
-$(".wrapper").on("touchmover",e=>e.preventDefault());
 
 $("[data-scroll-to]").click(e=>{
   e.preventDefault();
@@ -611,30 +551,3 @@ $("[data-scroll-to]").click(e=>{
 
  performTransition(reqSection.index());
 })
-
-
-
-console.log(isMobileVers);
-
-if(isMobileVers){
-  ///swipe  https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
-  $("body").swipe({
-    //Generic swipe handler for all directions
-    swipe:function(event,direction, ) {
-         const scroller=viewportScroller();
-         let scrollDirection="";
-
-         if(direction=="up") scrollDirection="next";
-         if(direction=="down") scrollDirection="prev";
-
-      scroller[scrollDirection]();
-     
-    }
-  });
-};
-
-
-console.log(sizePlayer().playWidth);
-
-
-  

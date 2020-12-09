@@ -1,0 +1,64 @@
+// файл обнуляющих стилей 
+@import "nullstyle.scss";
+
+
+$containerWidth:940px;
+$baseFontSize:18px;
+
+
+//breakpoints
+$tablets:768px;
+$phones:480px;
+ 
+
+
+
+
+//color
+$blue: #61c4d9;
+$darkGreen:#0b4d3c;
+
+
+//z-indexs
+$z-fixed-menu:100;
+@import "./media.scss" ;
+
+
+//setup
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import "layout.scss";
+
+//components
+@import "./hero.scss" ;
+@import "./header.scss" ;
+@import "./feature.scss" ;
+@import "./btn.scss" ;
+@import "./section.scss" ;
+@import "./headline.scss" ;
+@import "./benefits.scss" ;
+@import "./benefit.scss" ;
+@import "./benefit_section.scss" ;
+@import "./reviews_section.scss" ;
+@import "./reviews.scss" ;
+@import "./interactive-avatar.scss" ;
+@import "./order_section.scss" ;
+@import "./form.scss" ;
+@import "./radio.scss" ;
+@import "./fixed-menu.scss" ;
+@import "./hamburger.scss" ;
+@import "./map-section.scss" ;
+@import "./footer.scss" ;
+@import "./fullscreen.scss" ;
+@import "./product_section.scss" ;
+@import "./ingredients__dropdown.scss" ;
+@import "./team-section.scss" ;
+@import "./modal.scss" ;
+@import "./player.scss" ;
+@import "./product-menu-section.scss" ;
+
+
+
+
+
+
+

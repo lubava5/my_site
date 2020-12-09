@@ -1,0 +1,37 @@
+.btn{
+  font-size:rem(19px) ;
+  font-weight: bold;
+  padding: rem(18px) rem(35px) ;
+  text-transform: uppercase;
+  border-radius:rem(100px) ;
+  line-height:1 ;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  &__theme--white{
+    background:#fff;
+    color:$darkGreen ;
+    &:hover{
+      color: #fff;
+      background: $darkGreen;
+    }
+  }
+  &__theme--geen{
+    background:$darkGreen;
+    color:#fff ;
+    &:hover{
+      color:$darkGreen;
+      background: #fff;
+    }
+  }
+  &__theme--transparent{
+    background: transparent;
+    color: black;
+    text-transform: none;
+    &:hover{
+      color:$darkGreen;
+      
+    }
+  }
+  
+}

@@ -1,0 +1,15 @@
+.modal.errr-modal.modal__content {
+  color: red;
+}
+.modalfancybox-content {
+  padding: 0 !important;
+}
+.modal .fancy-button {
+  display: none;
+}
+
+.modal__container {
+  background-color: #fff;
+  padding: 35px 60px;
+  display: flex;
+}

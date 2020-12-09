@@ -1,0 +1,100 @@
+.section.products-menu-section{
+  background: url("../img/decor/accordion_bg.png") center center/cover no-repeat;
+  position: relative;
+  color: #fff;
+
+}
+.products-menu-section__title{
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  color: inherit;
+}
+.products-menu{
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+}
+.products-menu__item{
+  display: flex;
+}
+.products-menu__title{
+  display: block;
+  position: relative;
+  width: 100px;
+  display: flex;
+}
+// .products-menu__title{
+//   &:after{
+//     content: "";
+//     display: block;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     position: absolute;
+//     background: rgba(0,0,0,0.4);
+//   }
+// }
+
+.products-menu__image{
+  width: 100px;
+  object-fit: cover;
+}
+.production-menu__text{
+  font-weight: 700;
+  font-size: 48px;
+  //height: 100%;
+ position: absolute;
+ top: 0;
+  left: 0;
+ right: 0;
+  bottom: 20%;
+  writing-mode: vertical-rl;
+  transform:rotate(180deg) ;
+  letter-spacing: 5px;
+}
+.products-menu__content{
+ background: slategray;
+ width: 0;
+ position: relative;
+ overflow: hidden;
+ transition: width 0.7s;
+}
+.products-menu__container{
+  padding: 40px 73px 45px 26px;
+}
+.products-menu__close{
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  border: none;
+ background: transparent;
+}
+.products-menu__close{
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  width: 18px;
+  height: 18px;
+}
+.products-menu__close__plank{
+width: 100%;
+ display: block;
+ background: #fff;
+ height: 4px;
+ border-radius: 10px;
+ transform: rotate(-45deg);
+&::before{
+  content: "";
+  
+  width: 100%;
+  display: block;
+  background: #fff;
+  height: 4px;
+  border-radius: 10px;
+  transform: rotate(90deg);
+}
+}

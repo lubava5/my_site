@@ -1,0 +1,16 @@
+.reviews-section{
+  position: relative;
+  background: url("../img/decor/berries_reviews.png") right 10% top 10% no-repeat   ;
+  &::before{
+    content: url("../img/decor/leaf_reviews.png");
+    position: absolute;
+    bottom: rem(-90px);
+    left: 0;
+  }
+  &::after{
+    content: url("../img/decor/berries_reviews2.png");
+    position: absolute;
+    bottom: rem(-40px);
+    left: 0;
+  }
+}

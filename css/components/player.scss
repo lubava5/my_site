@@ -1,0 +1,121 @@
+.player-section__container{
+  width: 660px;
+  height: 405px;
+  margin: auto ;
+}
+.player__controls{
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  height: 35px;
+  background: #404040;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+.player{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  //&.active .player__splash{
+   //  display: none;
+  //}
+  .player__start{
+    position: relative;
+    width: 14px;
+    height: 14px;
+    border: none;}
+  &.paused{
+    .player__start{
+      &:after,
+      &:before{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 5px;
+        top: 0;
+        bottom: 0;
+        background: #626262;
+      }
+      &:after{
+        right: 0;
+      }
+      &::before{
+        left: 0;
+      }}}
+ &.active{
+    .player__start{
+      &:after{
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 14px;
+        border: 7px solid transparent;
+        border-left: 14px solid #626262;
+
+      }
+    }
+  }
+  
+}
+
+
+
+
+.player__splash{
+  //display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url("../img/decor/splashscreen.jpg")
+  center center / cover no-repeat;
+  cursor: pointer;
+  &:after{
+    content: url("../img/decor/play.svg");
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+  }
+}
+
+.player__playback{
+  height: 16px;
+  width: 446px;
+  position: relative;
+
+  &:before{
+    content: "";
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    background: #626262;
+    display: block;
+    transform: translateY(-50%);
+  }
+}
+.player__playback-button{
+  background: #626262;
+  border-radius: 50px;
+  border: none;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 0;
+}
+

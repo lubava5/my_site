@@ -1,0 +1,16 @@
+
+.order-section{
+  
+  background: url("../img/decor/order_section_bg.png") center center  , url("../img/decor/order_section_blueberry.png") left 10% top 90% no-repeat , url("../img/decor/order_section_leaf.png") right 10% bottom 10% no-repeat ;
+  //background-color: #CFDEDA;
+
+  
+
+
+  @include tablets{
+    padding-top: 175px;
+  padding-bottom: 180px;
+  height: auto;
+   }
+  
+}

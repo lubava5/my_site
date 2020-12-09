@@ -1,0 +1,34 @@
+
+
+// файл обнуляющих стилей 
+@import "nullstyle.scss";
+
+
+
+.container{
+max-width: rem(500px);
+margin: 0 auto;
+margin-top: rem(50px);
+padding: 0 rem(30px); }
+.content {
+	background-color:blue;
+}
+
+@media screen and ( max-width: 992px), /* ,=or*/ screen and (max-height:700) {}
+
+
+
+
+
+
+
+
+.ramka {
+	padding: rem(30px);
+}
+p{
+	color: yellow;
+}
+.pux{
+	max-width: 100%;
+}

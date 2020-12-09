@@ -1,4 +1,4 @@
-
+﻿
 //MENU HAMBURGER
 const openButton=document.querySelector(".hamburger");
 
@@ -25,7 +25,7 @@ closed.addEventListener('click', (e)=>{
   modal.classList.remove('fullscreen-menu_active');
 });
 
-///////////////////SLIDER
+//////////////////SLIDER
 
 const leftBtn = document.querySelector(".slider__btn--prev");
 const rightBtn = document.querySelector(".slider__btn--next");
